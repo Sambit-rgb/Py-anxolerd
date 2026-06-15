@@ -2,9 +2,7 @@ name: SonarCloud
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
 
   pull_request:
 
@@ -33,7 +31,6 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
         with:
           args: >
             -Dsonar.projectKey=Sambit-rgb_Py-adeyosemanputra
@@ -41,4 +38,4 @@ jobs:
             -Dsonar.scm.provider=git
             -Dsonar.python.version=3.12
             -Dsonar.sources=.
-            -Dsonar.exclusions=**/.git/**,**/.venv/**,**/venv/**,**/__pycache__/**,**/*.sql
+            -Dsonar.plsql.file.suffixes=.pks,.pkb
